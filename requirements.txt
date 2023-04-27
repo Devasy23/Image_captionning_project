@@ -1,0 +1,6 @@
+streamlit
+tensorflow
+PIL
+numpy
+pickle
+os

@@ -32,6 +32,7 @@ def preprocess_image(image_path):
     # Load VGG16 model with desired output layer
     model = VGG16()
     model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
+    # model = load_model('vgg16.h5')
     
     # Load and preprocess image
     npix = 224
