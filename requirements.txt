@@ -1,6 +1,6 @@
 streamlit
 tensorflow
-PIL
+pillow
 numpy
 pickle
 os
