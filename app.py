@@ -18,11 +18,15 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 
 # Load the pre-trained model and tokenizer
-loaded_Model = tf.keras.models.load_model('my_model.h5', compile=False)
-loaded_Model.compile(loss='categorical_crossentropy', optimizer='adam')
-tokenizer = pickle.load(open('tokenizer.pkl', 'rb'))
-index_word = dict([(index, word)
-                  for word, index in tokenizer.word_index.items()])
+
+
+def load():
+    global loaded_Model, tokenizer, index_word
+    loaded_Model = tf.keras.models.load_model('best_model.h5', compile=False)
+    loaded_Model.compile(loss='categorical_crossentropy', optimizer='adam')
+    tokenizer = pickle.load(open('tokenizer_best.pkl', 'rb'))
+    index_word = dict([(index, word)
+                    for word, index in tokenizer.word_index.items()])
 
 
 
@@ -50,7 +54,7 @@ def preprocess_image(image_path):
 # x = x.reshape(1, -1)
 
 # Define the function for generating a caption for the uploaded image
-def predict_caption(image, tokenizer, model, maxlen):
+def predict_caption(image, tokenizer, model, maxlen, index_word):
     '''
     image.shape = (1, 4462)
     '''
@@ -79,12 +83,40 @@ def app():
         image = Image.open(uploaded_file)
         st.image(image, use_column_width=True)
         
+        
+        # give an option to choose between 2 models
+        model = st.selectbox('Choose a model', ['Model 1', 'Model 2'])
+        if model == 'Model 1':
+            st.write('ResNet50 model-20 epochs')
+        
+        
         # Generate and display the caption
-        x= preprocess_image(uploaded_file)
-        x = x.reshape(1, -1)
-        caption = predict_caption(x, tokenizer, loaded_Model, 30)
-        st.header('Caption:')
-        st.write(caption)
+            x= preprocess_image(uploaded_file)
+            x = x.reshape(1, -1)
+            tokenizer = pickle.load(open('tokenizer_best.pkl', 'rb'))
+            loaded_Model = tf.keras.models.load_model('best_model.h5', compile=False)
+            loaded_Model.compile(loss='categorical_crossentropy', optimizer='adam')
+             
+            index_word = dict([(index, word)
+                for word, index in tokenizer.word_index.items()]) 
+            caption = predict_caption(x, tokenizer, loaded_Model, 35, index_word)
+            st.header('Caption:')
+            st.write(caption)
+            
+        elif model == 'Model 2':
+            loaded_Model = tf.keras.models.load_model('my_model.h5', compile=False)
+            loaded_Model.compile(loss='categorical_crossentropy', optimizer='adam')
+            
+            tokenizer = pickle.load(open('tokenizer.pkl', 'rb'))
+            index_word = dict([(index, word)
+                for word, index in tokenizer.word_index.items()])
+            
+            st.write('VGG16 model-20 epochs')
+            x= preprocess_image(uploaded_file)
+            x = x.reshape(1, -1)
+            caption = predict_caption(x, tokenizer, loaded_Model, 30, index_word)
+            st.header('Caption:')
+            st.write(caption)
 
 if __name__ == '__main__':
     app()
