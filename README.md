@@ -1,5 +1,51 @@
-# Image_captionning_project
-Our repo for NLP innovative
+# Image Captioning with Deep Learning
+
+This is a deep learning project that generates a textual description of an input image. We have used two models for image captioning: ResNet50 and VGG16. Both models have been trained on the Flickr8k dataset.
+
+## Installation
+
+To run this project, you need to have Python 3.7 or higher installed on your machine. Clone this repository and install the required packages using the following command:
+
+
+## Installation
+
+To run this project, you need to have Python 3.7 or higher installed on your machine. Clone this repository and install the required packages using the following command:
+```
+pip install -r requirements.txt
+```
+
+## Usage
+
+To run the GUI, use the following command:
+```
+streamlit run app.py
+```
+
+This will start a local server and open a web browser where you can upload an image and generate a caption for it.
+
+## Models
+
+The system provides two pre-trained models to generate captions:
+
+1. **Model 1**: A CNN-RNN model trained on the Flickr8k dataset using ResNet50 for feature extraction.
+2. **Model 2**: A CNN-RNN model trained on the Flickr8k dataset using VGG16 for feature extraction.
+
+
+## Results
+
+The pre-trained models were able to generate captions that are coherent and relevant to the images. However, the quality of the captions can be improved by training the models on larger and more diverse datasets.
+
+## Credits
+
+This project was inspired by the [Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555) paper and the [Image Captioning](https://www.coursera.org/learn/nlp-sequence-models) course on Coursera.
+
+## References
+
+- [Flickr8k Dataset](https://forms.illinois.edu/sec/1713398)
+- [ResNet50](https://arxiv.org/abs/1512.03385)
+- [VGG16](https://arxiv.org/abs/1409.1556)
+- [BLEU score](https://en.wikipedia.org/wiki/BLEU)
+
 
 
 **Image Captioning with VGG16 and LSTM(model 1)**
@@ -50,43 +96,3 @@ The text input is first pre-processed using NLTK. We create a vocabulary of word
 
 **Decoder model**
 The output from the LSTM layer and the output from the pre-trained model are combined and fed to the decoder model. The decoder model is a fully connected neural network with two hidden layers and an output layer. The output layer is a softmax layer which predicts the probability of each word in the vocabulary.
-
-## Installation
-
-To run this project, you need to have Python 3.7 or higher installed on your machine. Clone this repository and install the required packages using the following command:
-```
-pip install -r requirements.txt
-```
-
-## Usage
-
-To run the GUI, use the following command:
-```
-streamlit run app.py
-```
-
-This will start a local server and open a web browser where you can upload an image and generate a caption for it.
-
-## Models
-
-The system provides two pre-trained models to generate captions:
-
-1. **Model 1**: A CNN-RNN model trained on the Flickr8k dataset using ResNet50 for feature extraction.
-2. **Model 2**: A CNN-RNN model trained on the Flickr8k dataset using VGG16 for feature extraction.
-
-
-## Results
-
-The pre-trained models were able to generate captions that are coherent and relevant to the images. However, the quality of the captions can be improved by training the models on larger and more diverse datasets.
-
-## Credits
-
-This project was inspired by the [Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555) paper and the [Image Captioning](https://www.coursera.org/learn/nlp-sequence-models) course on Coursera.
-
-## References
-
-- [Flickr8k Dataset](https://forms.illinois.edu/sec/1713398)
-- [ResNet50](https://arxiv.org/abs/1512.03385)
-- [VGG16](https://arxiv.org/abs/1409.1556)
-- [BLEU score](https://en.wikipedia.org/wiki/BLEU)
-
