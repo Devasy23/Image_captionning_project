@@ -9,6 +9,10 @@ To run this project, you need to have Python 3.7 or higher installed on your mac
 pip install -r requirements.txt
 ```
 
+## Link to the project: https://github.com/Devasy23/Image_captionning_project
+
+## Link to the Deployed Web App: https://devasy23-image-captionning-project-app-5mulol.streamlit.app/
+
 ## Usage
 
 To run the GUI, use the following command:
