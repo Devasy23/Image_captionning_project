@@ -73,6 +73,15 @@ def predict_caption(image, tokenizer, model, maxlen, index_word):
     return (in_text)
 
 # Define the Streamlit app
+def format_caption(caption):
+    '''
+    caption: string
+    '''
+    caption = caption.split()
+    caption = caption[1:-1]
+    caption = ' '.join(caption)
+    return caption
+
 def app():
     st.set_page_config(page_title='Image Captioning', page_icon=':camera:', layout='wide')
     st.title('Image Captioning')
@@ -81,13 +90,13 @@ def app():
     uploaded_file = st.file_uploader('Choose an image', type=['jpg', 'jpeg', 'png'])
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, use_column_width=True)
+        st.image(image, width=300, caption='Uploaded Image' )
         
         
         # give an option to choose between 2 models
         model = st.selectbox('Choose a model', ['Model 1', 'Model 2'])
         if model == 'Model 1':
-            st.write('ResNet50 model-20 epochs')
+            st.info('Chosen model : ResNet50 model-20 epochs')
         
         
         # Generate and display the caption
@@ -100,8 +109,10 @@ def app():
             index_word = dict([(index, word)
                 for word, index in tokenizer.word_index.items()]) 
             caption = predict_caption(x, tokenizer, loaded_Model, 35, index_word)
-            st.header('Caption:')
-            st.write(caption)
+            # st.header('Caption:')
+            caption = format_caption(caption)
+            st.header('Caption : '+ caption)
+            # st.write(caption)
             
         elif model == 'Model 2':
             loaded_Model = tf.keras.models.load_model('my_model.h5', compile=False)
@@ -111,12 +122,15 @@ def app():
             index_word = dict([(index, word)
                 for word, index in tokenizer.word_index.items()])
             
-            st.write('VGG16 model-20 epochs')
+            st.info('Chosen Model : VGG16 model-20 epochs')
             x= preprocess_image(uploaded_file)
             x = x.reshape(1, -1)
             caption = predict_caption(x, tokenizer, loaded_Model, 30, index_word)
-            st.header('Caption:')
-            st.write(caption)
+            caption = format_caption(caption)
+            st.header('Caption : '+ caption)
+            # st.write(caption)
 
 if __name__ == '__main__':
     app()
+    
+    
