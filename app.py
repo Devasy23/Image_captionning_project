@@ -130,9 +130,6 @@
 #             st.header('Caption : '+ caption)
 #             # st.write(caption)
 
-# if __name__ == '__main__':
-#     app()
-    
     
 import streamlit as st
 import tensorflow as tf
@@ -227,7 +224,7 @@ def app():
             # Generate and display the caption
             caption = predict_caption(image, tokenizer, model, 35, tokenizer.index_word)
             caption = format_caption(caption)
-            st.header('Caption : '+ caption)
+            st.success('Caption : '+ caption)
             
         elif model == 'Model 2':
             st.info('Chosen model : Custom model')
@@ -244,4 +241,9 @@ def app():
             # Generate and display the caption
             caption = predict_caption(image, tokenizer, model, 35, tokenizer.index_word)
             caption = format_caption(caption)
-            st.header('Caption : '+ caption)
+            st.success('Caption : '+ caption)
+
+# app()
+
+if __name__ == '__main__':
+    app()
