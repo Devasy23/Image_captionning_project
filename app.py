@@ -16,10 +16,20 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow import argmax
 
+st.set_page_config(page_title='Image Captioning', page_icon=':camera:', layout='wide')
 
 # # Load the pre-trained model and tokenizer
 
+st.markdown("<div id='bg-wrapper'></div>", unsafe_allow_html=True)
 
+# Apply custom CSS style
+with open("index.css") as stylesheet:
+    index_css = f"<style>{stylesheet.read()}</style>"
+st.markdown(index_css, unsafe_allow_html=True)
+
+# Page title
+st.markdown("""<h1 style="color:white;"> Image Captioning </h1> """,
+            unsafe_allow_html=True)
 def load():
     global loaded_Model, tokenizer, index_word
     loaded_Model = tf.keras.models.load_model('best_model.h5', compile=False)
@@ -83,13 +93,13 @@ def format_caption(caption):
     return caption
 
 def app():
-    st.set_page_config(page_title='Image Captioning', page_icon=':camera:', layout='wide')
-    st.title('Image Captioning')
+    
+    # st.title('Image Captioning')
     
     # Allow the user to upload an image
     col1, col2 = st.columns([0.7, 0.3], gap='large')
     with col1:
-        uploaded_file = st.file_uploader('Choose an image', type=['jpg', 'jpeg', 'png'])
+        uploaded_file = st.file_uploader('', type=['jpg', 'jpeg', 'png'])
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         with col2:
@@ -116,10 +126,13 @@ def app():
                 caption = predict_caption(x, tokenizer, loaded_Model, 35, index_word)
                 # st.header('Caption:')
                 caption = format_caption(caption)
-                st.header('Caption : '+ caption)
+                success_str = "<div id='result' role='alert' class='stAlert st-ae st-af'>Predicted Caption: "
+                success_str += f"<strong>{caption}</strong></div>"
+                st.markdown(success_str, unsafe_allow_html=True)
                 # st.write(caption)
             
         elif model == 'Model 2':
+            st.info('Chosen Model : VGG16 model-20 epochs')
             with st.spinner('Predicting Output...'):
                 loaded_Model = tf.keras.models.load_model('my_model.h5', compile=False)
                 loaded_Model.compile(loss='categorical_crossentropy', optimizer='adam')
@@ -128,12 +141,15 @@ def app():
                 index_word = dict([(index, word)
                     for word, index in tokenizer.word_index.items()])
                 
-                st.info('Chosen Model : VGG16 model-20 epochs')
                 x= preprocess_image(uploaded_file)
                 x = x.reshape(1, -1)
                 caption = predict_caption(x, tokenizer, loaded_Model, 30, index_word)
                 caption = format_caption(caption)
-                st.header('Caption : '+ caption)
+                # Show prediction result and details
+                success_str = "<div id='result' role='alert' class='stAlert st-ae st-af'>Predicted Caption: "
+                success_str += f"<strong>{caption}</strong></div>"
+                st.markdown(success_str, unsafe_allow_html=True)
+                # st.header('Caption : '+ caption)
                 # st.write(caption)
 
     

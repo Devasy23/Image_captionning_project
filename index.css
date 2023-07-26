@@ -1,0 +1,240 @@
+footer {
+    visibility: hidden;
+    /* position: bottom; */
+    /* background-color: black; */
+    /*left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;*/
+}
+
+.edgvbvh9{
+    /* for save to db button */
+    margin-top: 3%;
+    margin-left: 37%;
+}
+.css-1gk2i2l{
+    margin-left: 37%;
+    margin-top: 3%;
+
+}
+.css-10434yk{
+    height:50px;
+    width: 50px;
+}
+.stSpinner{
+    text-align: center;
+    font-size: xx-large;
+    color: aliceblue;
+
+}
+
+.stAlert {
+    /* border: 0.5px solid rgb(57, 70, 200); */
+    border-radius: 0.75rem;
+    color: black;
+    /* filter: blur(2px); */
+    /* -webkit-filter: blur(2px); */
+    background-color: rgba(255 255 255 / 0.35);
+    /* background-color: rgb(255 255 255); */
+    /* opacity: 0.5; */
+}
+
+.css-1gulkj5, .css-1on073z{
+    border-radius: 0.75rem;
+    background-color: rgba(255 255 255 / 0.35);
+    color: white;
+
+}
+
+.css-7ym5gk {
+    /* button in uploader */
+    transition-duration: 0.2s;
+    border-radius: 0.75rem;
+    background: unset;
+}
+
+.css-7ym5gk:hover {
+    transition-duration: 0.2s;
+    /* button in uploader */
+    transform: scale(1.1);
+    border-radius: 1rem;
+    background: rgb(0, 157, 198);
+    background: linear-gradient(270deg, rgba(0, 157, 198, 1) 0%, rgba(71, 101, 195, 1) 50%, rgba(51, 41, 161, 1) 100%);
+    color: white;
+    border-color: rgb(255, 255, 252);
+
+}
+
+.st-au, .st-bi{
+    border-radius: 0.75rem;
+    background-color: rgba(255 255 255 / 0.35);
+    color: white;
+}
+
+
+
+
+
+.css-18ni7ap {
+    /* to set header transparent*/
+    background: unset;
+}
+
+
+
+
+
+.css-7ym5gk:active {
+    /* button in uploader */
+    border-radius: 0.75rem;
+    /* background-color: whitesmoke; */
+    color: whitesmoke;
+    border-color: whitesmoke;
+
+}
+
+.st-b7,
+.st-ae {
+    border-radius: 0.75rem;
+}
+
+.css-znku1x {
+    color: black;
+    border-radius: 0.75rem;
+}
+
+.css-10trblm {
+    top: -50px;
+}
+
+.css-8u98yl {
+    background-color: rgba(255 255 255 / 0.35);
+    border-radius: 0.75rem;
+}
+
+.css-fis6aj {
+    background-color: rgba(0 0 0 / 0.1);
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.css-po3vlj {
+    background: unset;
+}
+
+span {
+    color: black;
+}
+
+
+
+.css-y3drt2,
+.e1fqkh3o5,
+.css-10xlvwk,
+.e1fqkh3o3 {
+    color: white;
+}
+
+
+
+
+
+
+.css-1cpxqw2 {
+    background: rgba(255 255 255 / 0.35);
+    color: black;
+}
+
+
+#bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background: url(https://www.hdwallpapers.net/previews/neon-sunset-1170.jpg) no-repeat center center fixed;
+    filter: blur(3px);
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 100%;
+    backdrop-filter: blur(3px);
+
+}
+
+
+
+img {
+    border-radius: 0.75rem;
+    border: 5px solid rgba(255 117 202 / 0.35);
+    transition-duration: 0.2s;
+
+}
+
+img:hover {
+    transform: scale(1.2);
+    transition-duration: 0.2s;
+}
+
+.css-10trblm,
+.e16nr0p30 {
+    /* for styling the title */
+    text-align: center;
+    color: whitesmoke;
+}
+
+.css-fblp2m {
+    color: black;
+}
+
+.css-15tx938 {
+    /* text-align: center; */
+    font-weight: bold;
+    padding-left: 20%;
+}
+
+.css-uc76bn {
+    font-size: x-large;
+    font-weight: 900;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+
+
+
+#result {
+    background-color: rgb(177 245 198 / 60%);
+    padding: 16px;
+    font-size: x-large;
+}
+
+
+
+
+a:link {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+div:has(*>*>#result) {
+    margin-bottom: 1rem;
+}
+
+
+.css-15tx938,
+.effi0qh3 {
+    opacity: 100%;
+    padding-left: 2%;
+    font-size: large;
+    color: black;
+    /* color:whitesmoke; */
+}
+
