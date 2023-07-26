@@ -245,3 +245,7 @@ def app():
             caption = predict_caption(image, tokenizer, model, 35, tokenizer.index_word)
             caption = format_caption(caption)
             st.header('Caption : '+ caption)
+
+
+if __name__ == '__main__':
+    app()
