@@ -5,8 +5,11 @@ This is a deep learning project that generates a textual description of an input
 ## Installation
 
 To run this project, you need to have Python 3.7 or higher installed on your machine. Clone this repository and install the required packages using the following command:
+
 ```
 pip install -r requirements.txt
+
+python version = 3.10.5
 ```
 
 ## Link to the project: https://github.com/Devasy23/Image_captionning_project
