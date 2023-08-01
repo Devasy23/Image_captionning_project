@@ -14,7 +14,7 @@ python version = 3.10.5
 
 ## Link to the project: https://github.com/Devasy23/Image_captionning_project
 
-## Link to the Deployed Web App: https://devasy23-image-captionning-project-app-5mulol.streamlit.app/
+## Link to the Deployed Web App: [Link](https://devasy23-image-captionning.streamlit.app/)
 
 ## Usage
 
